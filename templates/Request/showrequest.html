@@ -1,0 +1,28 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <h2> Request List </h2>
+
+<div class="row row-cols-1 row-cols-md-3">
+
+{% for item in all_request %}
+<div class="col mb-4">
+    <div class="card text-white bg-secondary mb-3" style="max-width: 30rem;">
+
+      <div class="card-body">
+        <h5 class="card-title">Request info:  {{ item.id }}</h5>
+        <p class="card-text">
+         Person Name : {{ item.person_name }}<br>
+         Location : {{ item.location }}<br>
+         Phone No : {{ item.mobile }}<br>
+         Type of Request : {{ item.req_type }}<br>
+         Request Statement : {{ item.req_statement }}
+        </p>
+      </div>
+    </div>
+  </div>
+{%  endfor %}
+</div>
+{% endblock content %}

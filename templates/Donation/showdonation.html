@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h2>Display donation information here</h2>
+
+<div class="row row-cols-1 row-cols-md-3">
+{% for item in all_donation %}
+<div class="col mb-4">
+<div class="card text-white bg-secondary mb-3" style="max-width: 30rem;">
+      <div class="card-body">
+          <h5 class="card-title">Donation No: {{ item.id }}</h5>
+             <p class="card-text">
+        	   Donor Id : {{ item.donor_name}}<br>
+    	       Donate Amount : {{ item.amount }}
+		     </p>
+      </div>
+    </div>
+  </div>
+{%  endfor %}
+</div>
+
+{% endblock content %}

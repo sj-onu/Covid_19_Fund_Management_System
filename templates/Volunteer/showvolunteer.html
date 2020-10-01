@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <h2> Volunteer List </h2>
+
+<div class="row row-cols-1 row-cols-md-3">
+
+{% for item in all_volunteer %}
+<div class="col mb-4">
+    <div class="card text-white bg-secondary mb-3" style="max-width: 30rem;">
+      <div class="card-body">
+        <h5 class="card-title">Volunteer info:  {{ item.id }}</h5>
+        <p class="card-text">
+        Member name : {{ item.volunteer_name}}<br>
+        Type Of Work : {{ item.work_type }}</p>
+      </div>
+    </div>
+  </div>
+{%  endfor %}
+</div>
+{% endblock content %}

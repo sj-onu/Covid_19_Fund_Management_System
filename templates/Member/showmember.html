@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="row row-cols-1 row-cols-md-3">
+
+{% for item in all_member %}
+
+
+<div class="col mb-4">
+    <div class="card text-white bg-secondary mb-3" style="max-width: 30rem;">
+
+      <div class="card-body">
+        <h5 class="card-title">Member No : {{ item.id }}</h5>
+        <p class="card-text">
+            Member Name : {{ item.name }}
+            Age : {{ item.age }} <br>
+            Address : {{ item.address }} <br>
+            Contact No : {{ item.mobile }} <br>
+            Email : {{ item.email }}<br>
+            Type of Interest : {{ item.interest_in }}</p>
+      </div>
+    </div>
+  </div>
+
+{%  endfor %}
+</div>
+
+
+{% endblock content %}
+
+
+
