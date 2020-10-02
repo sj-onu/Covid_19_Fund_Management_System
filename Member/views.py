@@ -31,3 +31,21 @@ def insertMember(request):
         'message': message
     }
     return render(request, 'Member/insertMember.html', context)
+def showDetails(request, member_id):
+
+    searched_member = MemberClass.objects.filter(id=member_id)  # many return
+
+    if len(searched_member) == 0:
+        does_exists = False
+        context = {
+            'does_exists': does_exists,
+        }
+    else:
+        does_exists = True
+        search = searched_member[0]
+        context = {
+            'does_exists': does_exists,
+            'search': search
+        }
+
+    return render(request, 'Member/detail_member_view.html', context)

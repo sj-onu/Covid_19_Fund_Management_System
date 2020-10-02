@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content  %}
+
+
+        <div class="card bg-light mb-2`" >
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src="{{ search.image.url }}" class="card-img" alt="...">
+            </div>
+
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{ search.name }}</h5>
+                <p class="card-text">
+                   Member Name: {{ search.name }} <br>
+                   Member Id: {{ search.id }} <br>
+                  Member Age:  {{ search.age }} <br>
+                  Interest_in : {{ search.interest_in }} <br>
+                   Address: {{ search.address }} <br>
+                </p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+{% endblock content %}

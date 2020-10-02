@@ -1,10 +1,11 @@
-{% extends 'base.html' %}
 
-
+{% extends 'base.html'%}
 
 {% block content %}
-
-
-    {{ profile }}
-
+    <table>
+        <tr><td>{{ profile.full_name }}</td></tr>
+        <tr><td>{{ profile.user.username }}</td></tr>
+        <tr><td><img src="{{ profile.pro_pic.url }}" height="200" width="200" alt=""></td></tr>
+       <tr><td> <a href="{{ profile.cv.url }}">View CV</a></td></tr>
+    </table>
 {% endblock content %}

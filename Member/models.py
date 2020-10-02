@@ -8,7 +8,7 @@ class MemberClass(models.Model):
     mobile = models.IntegerField(blank=True, null=True)
     email = models.EmailField(max_length=200)
     interest_in = models.CharField(max_length=300)
+    image = models.ImageField(upload_to='MembersPic/images/', blank=True, default="MembersPic/images/default.jpg")
 
     def __str__(self):
         return self.name
-

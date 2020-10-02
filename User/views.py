@@ -24,7 +24,7 @@ def user_registration(request):
 def showProfile(request):
     ProfileList = Profile.objects.all()
     context = {
-        'profiles': ProfileList
+        'profile': ProfileList
     }
     return render(request, 'User/viewProfile.html', context)
 

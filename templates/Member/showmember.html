@@ -15,12 +15,15 @@
       <div class="card-body">
         <h5 class="card-title">Member No : {{ item.id }}</h5>
         <p class="card-text">
-            Member Name : {{ item.name }}
+            Member Name : {{ item.name }}<br>
             Age : {{ item.age }} <br>
             Address : {{ item.address }} <br>
             Contact No : {{ item.mobile }} <br>
             Email : {{ item.email }}<br>
             Type of Interest : {{ item.interest_in }}</p>
+          <a href="{{ item.id }}">
+              <button type="button" class="card text-white bg-secondary mb-3">Details</button>
+          </a>
       </div>
     </div>
   </div>

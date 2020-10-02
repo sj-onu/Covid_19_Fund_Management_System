@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'User.apps.UserConfig',
     'Request.apps.RequestConfig',
 
+
 ]
 
 MIDDLEWARE = [

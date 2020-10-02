@@ -32,6 +32,7 @@ urlpatterns = [
 
                   path('member/', memberviews.showMember, name='member'),
                   path('insertMember/', memberviews.insertMember, name='insertMember'),
+                  path('member/<int:member_id>', memberviews.showDetails, name='detail_view'),
 
                   path('volunteer/', volunteerviews.showVolunteer, name='volunteer'),
                   path('insertVolunteer/', volunteerviews.insertVolunteer, name='insertVolunteer'),
