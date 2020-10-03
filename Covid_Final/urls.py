@@ -34,8 +34,6 @@ urlpatterns = [
                   path('insertMember/', memberviews.insertMember, name='insertMember'),
                   path('member/<int:member_id>', memberviews.showDetails, name='detail_view'),
 
-                  path('cart/', memberviews.view_cart, name='cart'),
-
                   path('email/', userviews.sendEmail, name='email'),
                   path('verification/', userviews.verifyEmail, name='verification'),
 

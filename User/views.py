@@ -34,11 +34,11 @@ def createProfile(request):
         form = ProfileForm(request.POST, request.FILES)
         message = "Invalid input. Please try again!"
         if form.is_valid():
-            profiles = form.save(commit=False)
+            profile = form.save(commit=False)
 
-            profiles.user = request.user
+            profile.user = request.user
 
-            profiles.save()
+            profile.save()
 
             message = "Profile is inserted to DB. You can insert a new Profile now"
             form = ProfileForm()

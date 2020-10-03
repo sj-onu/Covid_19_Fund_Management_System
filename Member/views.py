@@ -1,8 +1,9 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from .models import MemberClass, Cart
-from .forms import MemberForm
-from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.shortcuts import render
+
+from .forms import MemberForm
+from .models import MemberClass
 
 
 # Create your views here.
@@ -67,33 +68,3 @@ def showDetails(request, member_id):
     return render(request, 'Member/detail_member_view.html', context)
 
 
-@login_required
-def view_cart(request):
-    cart = Cart.objects.get(user=request.user)
-
-    context = {
-        'cart': cart
-    }
-
-    return render(request, 'Member/cart.html', context)
-
-
-@login_required
-def update_cart(request, member_id):
-    member = get_object_or_404(MemberClass, id=member_id)
-    cart = get_object_or_404(Cart, user=request.user)
-
-    cart.member.add(member)
-    cart.save()
-
-    return redirect('cart')
-@login_required
-def delete_from_cart(request, member_id):
-
-    member = get_object_or_404(MemberClass, id=member_id)
-    cart = Cart.objects.get(user=request.user)
-
-    cart.member.remove(member)
-    cart.save()
-
-    return redirect('cart')
