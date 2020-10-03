@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import MemberClass
+from .models import MemberClass , Cart
 
 # Register your models here.
 
-admin.site.register(MemberClass )
+admin.site.register([MemberClass, Cart] )

@@ -12,3 +12,11 @@ class MemberClass(models.Model):
 
     def __str__(self):
         return self.name
+class Cart(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    member = models.ManyToManyField(MemberClass) # can be blank or null by default
+    created_date = models.DateTimeField(auto_now_add=True, auto_now=False)
+    updated_date = models.DateTimeField(auto_now_add=False, auto_now=True)
+
+    def __str__(self):
+        return self.user.username

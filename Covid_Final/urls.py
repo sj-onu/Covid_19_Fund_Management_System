@@ -34,6 +34,11 @@ urlpatterns = [
                   path('insertMember/', memberviews.insertMember, name='insertMember'),
                   path('member/<int:member_id>', memberviews.showDetails, name='detail_view'),
 
+                  path('cart/', memberviews.view_cart, name='cart'),
+
+                  path('email/', userviews.sendEmail, name='email'),
+                  path('verification/', userviews.verifyEmail, name='verification'),
+
                   path('volunteer/', volunteerviews.showVolunteer, name='volunteer'),
                   path('insertVolunteer/', volunteerviews.insertVolunteer, name='insertVolunteer'),
 
@@ -51,6 +56,7 @@ urlpatterns = [
 
                   path('registration/', userviews.user_registration, name='registration'),
                   path('accounts/', include('django.contrib.auth.urls')),
-                  path('profiles/', userviews.showProfile, name='profiles'),
+
+                  path('profile/', userviews.showProfile, name='profile'),
                   path('createProfile/', userviews.createProfile, name='createProfile'),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
