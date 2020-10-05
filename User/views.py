@@ -2,8 +2,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 
-from .forms import ProfileForm
-from .models import Profile
+from .forms import ProfileForm, ChatForm
+from .models import Profile, Chat
 
 from django.core.mail import send_mail
 import random
@@ -24,13 +24,14 @@ def user_registration(request):
     }
     return render(request, 'User/registration.html', context)
 
+
 @login_required
 def createProfile(request):
     form = ProfileForm()
 
     message = ""
     if request.method == "POST":
-        form = ProfileForm(request.POST,request.FILES)
+        form = ProfileForm(request.POST, request.FILES)
         message = "Invalid Input.Please try again."
         if form.is_valid():
             profile = form.save(commit=False)
@@ -41,16 +42,17 @@ def createProfile(request):
             form = ProfileForm()
 
     context = {
-        'form' : form,
+        'form': form,
         'message': message
     }
     return render(request, 'User/createProfile.html', context)
+
 
 @login_required
 def showProfile(request):
     profile = Profile.objects.filter(user=request.user)
 
-    if len(profile)!=0:
+    if len(profile) != 0:
         profile = profile[0]
     context = {
         'profile': profile
@@ -130,3 +132,25 @@ def verifyEmail(request):
         'message': message
     }
     return render(request, 'User/emailVerificationcode.html', context)
+
+
+@login_required
+def send_message(request):
+    form = ChatForm()
+
+    all_messages = Chat.objects.filter(receiver=request.user)
+
+    if request.method == "POST":
+        form = ChatForm(request.POST, request.FILES)
+
+        if form.is_valid:
+            instance = form.save(commit=False)
+            instance.sender = request.user
+            instance.save()
+
+    context = {
+        'form': form,
+        'all_messages': all_messages
+    }
+
+    return render(request, 'User/Chat.html', context)
