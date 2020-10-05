@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content  %}
+
+
+        <div class="card bg-light mb-2`" >
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src="{{ search.area_image.url }}" class="card-img" alt="...">
+            </div>
+
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{ search.area_name }}</h5>
+                <p class="card-text">
+                    Volunteer Name : {{ search.volunteer_name }}<br>
+                   No Of Affected Family: {{ search.no_of_affected_family }} <br>
+                    Condition Of the Area: {{ search.condition }}
+                </p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+{% endblock content %}

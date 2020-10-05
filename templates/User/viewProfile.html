@@ -2,9 +2,10 @@
 
 {% block content %}
     <table>
-        <tr><td>{{ profile.id }}</td></tr>
-        <tr><td>{{ profile.user.username }}</td></tr>
-        <tr><td>{{ profile.contact_no }}</td></tr>
+        <tr><td>ID:{{ profile.id }}</td></tr>
+        <tr><td>User Name :{{ profile.user.username }}</td></tr>
+         <tr><td>Full Name :{{ profile.full_name}}</td></tr>
+        <tr><td>Contact No:{{ profile.contact_no }}</td></tr>
         <tr><td><img src="{{ profile.pro_pic.url }}" height="200" width="200" alt=""></td></tr>
        <tr><td> <a href="{{ profile.cv.url }}">View CV</a></td></tr>
     </table>

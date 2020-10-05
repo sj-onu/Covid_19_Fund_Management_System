@@ -48,6 +48,7 @@ urlpatterns = [
 
                   path('area/', areaviews.showArea, name='area'),
                   path('insertArea/', areaviews.insertArea, name='insertArea'),
+                  path('area/<int:area_id>', areaviews.showDetails, name='detail_area_view'),
 
                   path('requests/', requestviews.showRequest, name='requests'),
                   path('insertRequest/', requestviews.insertRequest, name='insertRequest'),

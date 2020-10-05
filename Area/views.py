@@ -29,3 +29,20 @@ def insertArea(request):
         'message': message
     }
     return render(request, 'Area/insertArea.html', context)
+def showDetails(request, area_id):
+    searched_area = AreaClass.objects.filter(id=area_id)  # many return
+
+    if len(searched_area) == 0:
+        does_exists = False
+        context = {
+            'does_exists': does_exists,
+        }
+    else:
+        does_exists = True
+        search = searched_area[0]
+        context = {
+            'does_exists': does_exists,
+            'search': search
+        }
+
+    return render(request, 'Area/detail_area_view.html', context)

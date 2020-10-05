@@ -24,35 +24,34 @@ def user_registration(request):
     }
     return render(request, 'User/registration.html', context)
 
-
 @login_required
 def createProfile(request):
-    message = ""
     form = ProfileForm()
 
+    message = ""
     if request.method == "POST":
-        form = ProfileForm(request.POST, request.FILES)
-        message = "Invalid input. Please try again!"
+        form = ProfileForm(request.POST,request.FILES)
+        message = "Invalid Input.Please try again."
         if form.is_valid():
             profile = form.save(commit=False)
 
             profile.user = request.user
-
             profile.save()
-
-            message = "Profile is inserted to DB. You can insert a new Profile now"
+            message = "Profile is Created"
             form = ProfileForm()
 
     context = {
-        'form': form,
+        'form' : form,
         'message': message
     }
     return render(request, 'User/createProfile.html', context)
 
-
 @login_required
 def showProfile(request):
-    profile = Profile.objects.all()
+    profile = Profile.objects.filter(user=request.user)
+
+    if len(profile)!=0:
+        profile = profile[0]
     context = {
         'profile': profile
     }

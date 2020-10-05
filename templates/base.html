@@ -15,7 +15,7 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">COVID-19 <br> Fund Rising</a>
+  <a class="navbar-brand" href="{% url 'area' %}">COVID-19 <br> Fund Rising</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -24,19 +24,11 @@
     <ul class="navbar-nav mr-auto">
 
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{% url 'area' %}">Home <span class="sr-only">(current)</span></a>
       </li>
         {% if user.is_authenticated %}
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Members
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{% url 'member' %}">Member</a>
-          <a class="dropdown-item" href="{% url 'volunteer' %}">Volunteer</a>
-          <a class="dropdown-item" href="{% url 'donor' %}">Donor Information</a>
-        </div>
-      </li>
+         <a class="nav-link" href="{% url 'member' %}">Members  </a>
+
      <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Activities List
@@ -46,7 +38,7 @@
           <a class="dropdown-item" href="{% url 'donation' %}">Donation info</a>
         </div>
       </li>
-        <a class="nav-link" href="{% url 'profile' %}">My profile</a>
+        <a class="nav-link" href="{% url 'profile' %}">{{ user.username }}</a>
             <li class="nav-item">
         <a class="nav-link" href="{% url 'createProfile' %}">Create New Profile</a>
       </li>

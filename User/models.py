@@ -4,8 +4,8 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Profile(models.Model):
-    contact_no = models.CharField(max_length=20, blank=True, null=True, default='False')
-    mobile_no = models.CharField(max_length=20, blank=True, null=True, default='False')
+    contact_no = models.CharField(max_length=20, blank=True, null=True)
+    full_name = models.CharField(max_length=100, default='user.username')
     pro_pic = models.ImageField(upload_to='UsersPic/images/', blank=True, default="UsersPic/images/default.jpg")
     cv = models.FileField(upload_to='files/cv', blank=True, default="files/cv/default.png")
 

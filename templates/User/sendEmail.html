@@ -8,15 +8,21 @@
         {% csrf_token %}
 
         <label>To: </label>
-        <input type="text" name="recipient">
+        <label>
+            <input type="text" name="recipient">
+        </label>
 
         <label>Subject: </label>
-        <input type="text" name="subject">
+        <label>
+            <input type="text" name="subject">
+        </label>
 
         <label>Body </label>
-        <textarea name= "body" rows="4" cols="50">
+        <label>
+<textarea name= "body" rows="4" cols="50">
 
-        </textarea>
+</textarea>
+        </label>
 
         <input type="submit">
 
