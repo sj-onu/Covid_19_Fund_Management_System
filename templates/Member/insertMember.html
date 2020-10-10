@@ -4,7 +4,7 @@
 
     <h2>{{ message }}</h2>
 
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
 
         {% csrf_token %}
 
@@ -12,8 +12,7 @@
 
         <input type="submit">
 
-        <button type="submit"> Insert </button>
-
     </form>
+
 
 {% endblock content %}

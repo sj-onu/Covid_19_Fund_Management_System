@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import RequestClass
 from .forms import RequestForm
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
@@ -23,7 +24,7 @@ def insertRequest(request):
         message = "Invalid input. Please try again!"
         if form.is_valid():
             form.save()
-            message = "Member is inserted to DB. You can insert a new student now"
+            message = "You request is received.WE will inform you"
             form = RequestForm()
 
     context = {

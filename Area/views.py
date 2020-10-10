@@ -17,7 +17,7 @@ def insertArea(request):
     form = AreaForm()
 
     if request.method == "POST":
-        form = AreaForm(request.POST)
+        form = AreaForm(request.POST, request.FILES)
         message = "Invalid input. Please try again!"
         if form.is_valid():
             form.save()

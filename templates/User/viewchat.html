@@ -1,28 +1,52 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>My Portfolio</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <h3>My Messages</h3>
-    <div class="container">
-
-        {% for message in all_messages %}
-            Sender: {{ message.sender.username }}<br>
-            Message: {{ message.message }}<br>
-
-            {% if message.image  %}
-            <img src="{{ message.image.url }}" width="200" height="200"><br>
-            {% endif %}
-
-            {% if message.file  %}
+</head>
+<body>
+     <!--Contact form-->
+     <div class="row">
+         <form class="contact-form padd-15">
+            <div class="row">
+                <div class="form-item col-6 padd-15">
+                  <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Name*">
+                  </div>
+                </div>
+                <div class="form-item col-6 padd-15">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Email*">
+                    </div>
+                  </div>
+            </div>
+            <div class="row">
+                <div class="form-item col-12 padd-15">
+                               {% if message.file  %}
                 <a href="{{ message.file.url }}" >File</a><br>
-            {% endif %}
-
-            {{ message.timestamp }}
-
-            <br><br>
-
-        {% endfor %}
-
-    </div>
-
+                 {% endif %}
+                  </div>
+            </div>
+            <div class="row">
+                <div class="form-item col-12 padd-15">
+                    <div class="form-group">
+                        <textarea class="form-control" placeholder="Your Message....."></textarea>
+                    </div>
+                  </div>
+            </div>
+            <div class="row">
+                <div class=" col-12 padd-15">
+                    <button type="submit" class="btn">Send Message</button>
+                  </div>
+            </div>
+         </form>
+     </div>
+    <!--Contact form end-->
+</body>
+</html>
 {% endblock content %}

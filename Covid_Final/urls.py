@@ -33,6 +33,7 @@ urlpatterns = [
                   path('member/', memberviews.showMember, name='member'),
                   path('insertMember/', memberviews.insertMember, name='insertMember'),
                   path('member/<int:member_id>', memberviews.showDetails, name='detail_view'),
+                  path('my-memberRequest/', memberviews.memberRequest, name='my-memberRequest'),
 
                   path('email/', userviews.sendEmail, name='email'),
                   path('verification/', userviews.verifyEmail, name='verification'),

@@ -1,4 +1,3 @@
-{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
     <title>Project</title>
 </head>
@@ -30,6 +30,7 @@
          <a class="nav-link" href="{% url 'member' %}">Members  </a>
 
 
+
      <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Activities List
@@ -37,23 +38,26 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="{% url 'area' %}">Area Info</a>
           <a class="dropdown-item" href="{% url 'donation' %}">Donation info</a>
+          <a class="dropdown-item" href="{% url 'requests' %}">Request Info</a>
         </div>
       </li>
         <a class="nav-link" href="{% url 'profile' %}">{{ user.username }}</a>
-            <li class="nav-item">
-        <a class="nav-link" href="{% url 'createProfile' %}">Create Profile</a>
-      </li>
-          <li class="nav-item">
-        <a class="nav-link" href="{% url 'email' %}">Email</a>
-      </li>
-        <li class="nav-item">
-        <a class="nav-link" href="{% url 'password_change' %}">Change password</a>
-      </li>
-     <li class="nav-item">
-        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Profile
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{% url 'createProfile' %}">Create Profile</a>
+            <a class="dropdown-item" href="{% url 'email' %}">Email</a>
+            <a class="dropdown-item" href="{% url 'password_change' %}">Change password</a>
+
+        </div>
       </li>
                <li class="nav-item">
         <a class="nav-link" href="{% url 'chat' %}">Message</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="{% url 'my-memberRequest' %}">Pending</a>
       </li>
 
       <li class="nav-item dropdown">
@@ -68,6 +72,9 @@
           <a class="dropdown-item" href="{% url 'insertArea' %}">Insert an Area</a>
           <a class="dropdown-item" href="{% url 'insertRequest' %}">Insert Request</a>
         </div>
+      </li>
+                 <li class="nav-item">
+        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
       </li>
         {% else %}
           <h3> Stranger!</h3>
@@ -155,7 +162,7 @@
           <a href="{% url 'profile' %}">Your Account</a>
         </p>
         <p>
-            <a href="{% url 'insertMember' %}">Become a Member</a>
+            <a href="{% url 'insertRequest' %}">Become a Member</a>
 
         </p>
 

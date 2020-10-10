@@ -123,10 +123,10 @@ def verifyEmail(request):
             profile = Profile.objects.get(user=request.user)
             profile.status = "True"
             profile.save()
-            context = {
+        context = {
                 'message': message
-            }
-            return render(request, 'User/success.html', context)
+                   }
+        return render(request, 'User/success.html', context)
 
     context = {
         'message': message

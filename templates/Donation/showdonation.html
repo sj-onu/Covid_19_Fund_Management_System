@@ -11,13 +11,14 @@
       <div class="card-body">
           <h5 class="card-title">Donation No: {{ item.id }}</h5>
              <p class="card-text">
-        	   Donor Id : {{ item.donor_name}}<br>
-    	       Donate Amount : {{ item.amount }}
-		     </p>
+        	   Donor Name : {{ item.donor_name}}<br>
+    	       Donate Amount : {{ item.amount }}<br>
+               Time & DAte : {{ item.timestamp }}
+
       </div>
     </div>
   </div>
 {%  endfor %}
 </div>
-
+<h2>Total Amount of Donation: {{ total }}</h2>
 {% endblock content %}

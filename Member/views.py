@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import render
 
 from .forms import MemberForm
-from .models import MemberClass
+from .models import MemberClass , Order
 
 
 # Create your views here.
@@ -13,10 +13,6 @@ def showMember(request):
 
     if request.method == 'POST':
         member = MemberClass.objects.filter(name__icontains=request.POST['search'])
-        category = MemberClass.objects.filter(category__icontains=request.POST['search'])
-        description = MemberClass.objects.filter(description__icontains=request.POST['search'])
-
-        member = member | category | description  # C = A U B set operation
 
     user_count = User.objects.count()
     member_count = MemberClass.objects.count()
@@ -35,7 +31,7 @@ def insertMember(request):
     form = MemberForm()
 
     if request.method == "POST":
-        form = MemberForm(request.POST)
+        form = MemberForm(request.POST , request.FILES)
         message = "Invalid input. Please try again!"
         if form.is_valid():
             form.save()
@@ -47,7 +43,24 @@ def insertMember(request):
         'message': message
     }
     return render(request, 'Member/insertMember.html', context)
+@login_required
+def memberRequest(request):
 
+    members = MemberClass.objects.all()
+
+    try:
+        members = MemberClass.objects.all()
+        order_status = True
+    except members.DoesNotExist:
+        members = MemberClass(user=request.user)
+        order_status = False
+
+    context = {
+        'members': members,
+        'order_status': order_status,
+    }
+
+    return render(request, 'Member/memberRequest.html', context)
 
 def showDetails(request, member_id):
     searched_member = MemberClass.objects.filter(id=member_id)  # many return
@@ -66,5 +79,22 @@ def showDetails(request, member_id):
         }
 
     return render(request, 'Member/detail_member_view.html', context)
+@login_required
+def my_orders(request):
 
+    orders = Order(user=request.user)
 
+    try:
+        orders = Order.objects.filter(user=request.user)
+        order_status = True
+    except orders.DoesNotExist:
+        orders = Order(user=request.user)
+        order_status = False
+
+    context = {
+        'orders': orders,
+        'order_status': order_status
+
+    }
+
+    return render(request, 'Member/memberRequest.html', context)
