@@ -28,6 +28,8 @@
       </li>
         {% if user.is_authenticated %}
          <a class="nav-link" href="{% url 'member' %}">Members  </a>
+        <a class="nav-link" href="{% url 'insertDonation' %}">Donate</a>
+
 
 
 
@@ -73,7 +75,7 @@
           <a class="dropdown-item" href="{% url 'insertRequest' %}">Insert Request</a>
         </div>
       </li>
-                 <li class="nav-item">
+       <li class="nav-item">
         <a class="nav-link" href="{% url 'logout' %}">Logout</a>
       </li>
         {% else %}
@@ -179,12 +181,12 @@
       <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
         <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
         <p>
-          <i class="fas fa-home mr-3"></i> 74/A Green Rd, Dhaka 1205</p>
+          <i class="fas fa-home mr-3"></i><br> 74/A Green Rd, Dhaka 1205<br></p>
         <p>
           <i class="fas fa-envelope mr-3"></i>
-	          18101047@uap-bd.edu<br>
-	          18101043@uap-bd.edu<br>
-	       	  18101035@uap-bd.edu</p>
+	         <br> 18101047@uap-bd.edu<br>
+	        <br>  18101043@uap-bd.edu<br>
+	       	<br>  18101035@uap-bd.edu</p>
         <p>
           <i class="fas fa-phone mr-3"></i> +8801774233169</p>
         <p>

@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 def showDonation(request):
     donation = DonationClass.objects.all()
+
     total = 0
     for amount in donation.all():
         total += amount.amount
@@ -38,4 +39,3 @@ def insertDonation(request):
         'form': form
     }
     return render(request, 'Donation/insertDonation.html', context)
-
