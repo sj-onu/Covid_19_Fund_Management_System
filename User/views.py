@@ -154,3 +154,13 @@ def send_message(request):
     }
 
     return render(request, 'User/Chat.html', context)
+@login_required
+def showMessage(request):
+
+    all_messages = Chat.objects.all()
+
+    context = {
+        'all_messages': all_messages
+    }
+
+    return render(request, 'User/show chat.html', context)

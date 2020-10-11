@@ -53,9 +53,8 @@
             <a class="dropdown-item" href="{% url 'password_change' %}">Change password</a>
 
         </div>
-      </li>
-               <li class="nav-item">
-        <a class="nav-link" href="{% url 'chat' %}">Message</a>
+      </li><li class="nav-item">
+        <a class="nav-link" href="{% url 'showChat' %}">Message</a>
       </li>
        <li class="nav-item">
         <a class="nav-link" href="{% url 'my-memberRequest' %}">Pending</a>
@@ -89,7 +88,7 @@
         {% endif %}
     </ul>
 
-    <form method="POST" action="{% url 'area' %}">
+    <form method="POST" action="{% url 'member' %}">
                 {% csrf_token %}
         <label>
             <input  type="search" name="search">
@@ -167,8 +166,10 @@
             <a href="{% url 'insertRequest' %}">Become a Member</a>
 
         </p>
-
-        <p>
+         <p>
+          <a  href="{% url 'chat' %}">Send Message</a>
+        </p>
+         <p>
           <a  href="{% url 'insertRequest' %}">Help</a>
 
         </p>
