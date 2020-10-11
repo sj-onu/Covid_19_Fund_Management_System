@@ -1,13 +1,18 @@
-from django.shortcuts import render
-from .models import AreaClass
-from .forms import AreaForm
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
+
+from .forms import AreaForm
+from .models import AreaClass
 
 
 def showArea(request):
     area = AreaClass.objects.all()
+    if request.method == 'POST':
+        area = AreaClass.objects.filter(area_name__icontains=request.POST['search'])
+
     context = {
-        'all_area': area
+        'all_area': area,
+
     }
     return render(request, 'Area/showarea.html', context)
 @login_required

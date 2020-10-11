@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-    <title>Project</title>
+    <title>Our Project</title>
 </head>
 <body>
 
@@ -38,7 +38,6 @@
           Activities List
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{% url 'area' %}">Area Info</a>
           <a class="dropdown-item" href="{% url 'donation' %}">Donation info</a>
           <a class="dropdown-item" href="{% url 'requests' %}">Request Info</a>
         </div>
@@ -90,13 +89,14 @@
         {% endif %}
     </ul>
 
-    <form method="POST" action="{% url 'member' %}">
+    <form method="POST" action="{% url 'area' %}">
                 {% csrf_token %}
         <label>
             <input  type="search" name="search">
         </label>
         <button  type="submit">Search</button>
     </form>
+
   </div>
 </nav>
 
